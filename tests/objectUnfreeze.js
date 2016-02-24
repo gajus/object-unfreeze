@@ -35,9 +35,7 @@ describe('objectUnfreeze()', () => {
         });
 
         it('creates a shallow copy of the target object', () => {
-            let shallowCopy;
-
-            shallowCopy = objectUnfreeze(subject);
+            const shallowCopy = objectUnfreeze(subject);
 
             expect(shallowCopy.foo).to.equal('FOO');
 

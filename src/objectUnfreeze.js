@@ -1,16 +1,10 @@
 /**
  * Make a shallow copy of the object maintaining the prototype.
- *
- * @param {Object} source Frozen object.
- * @returns {Object}
  */
-export default (source) => {
-    let property,
-        target;
+export default (source: Object): Object => {
+    const target = {};
 
-    target = {};
-
-    for (property in source) {
+    for (const property in source) {
         if (source.hasOwnProperty(property)) {
             target[property] = source[property];
         }
