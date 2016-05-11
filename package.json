@@ -6,7 +6,7 @@
     "freeze",
     "unfreeze"
   ],
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "./dist/objectUnfreeze.js",
   "author": {
     "email": "gajus@gajus.com",
