@@ -30,6 +30,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "pragmatist": "^3.0.15"
+    "pragmatist": "^3.0.21"
   }
 }

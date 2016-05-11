@@ -60,7 +60,7 @@ describe('objectUnfreeze() on Array', () => {
             it('throws an error', () => {
                 expect(() => {
                     subject.push('test');
-                }).to.throw(Error, `Can\'t add property ${subject.length}, object is not extensible`);
+                }).to.throw(Error, 'Can\'t add property ' + subject.length + ', object is not extensible');
             });
         });
 
@@ -69,7 +69,7 @@ describe('objectUnfreeze() on Array', () => {
 
             expect(() => {
                 subject.push('test');
-            }).to.throw(Error, `Can\'t add property ${subject.length}, object is not extensible`);
+            }).to.throw(Error, 'Can\'t add property ' + subject.length + ', object is not extensible');
         });
 
         it('creates a shallow copy of the target array', () => {
