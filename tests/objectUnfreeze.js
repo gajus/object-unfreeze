@@ -45,3 +45,41 @@ describe('objectUnfreeze()', () => {
         });
     });
 });
+
+describe('objectUnfreeze() on Array', () => {
+    context('frozen array', () => {
+        let subject;
+
+        beforeEach(() => {
+            subject = ['foo'];
+
+            Object.freeze(subject);
+        });
+
+        context('manipulating the frozen array', () => {
+            it('throws an error', () => {
+                expect(() => {
+                    subject.push('test');
+                }).to.throw(Error, `Can\'t add property ${subject.length}, object is not extensible`);
+            });
+        });
+
+        it('does not affect the target array', () => {
+            objectUnfreeze(subject);
+
+            expect(() => {
+                subject.push('test');
+            }).to.throw(Error, `Can\'t add property ${subject.length}, object is not extensible`);
+        });
+
+        it('creates a shallow copy of the target array', () => {
+            const shallowCopy = objectUnfreeze(subject);
+
+            expect(shallowCopy[0]).to.equal('foo');
+
+            shallowCopy.push('bar');
+
+            expect(shallowCopy[1]).to.equal('bar');
+        });
+    });
+});

@@ -2,11 +2,18 @@
  * Make a shallow copy of the object maintaining the prototype.
  */
 export default (source: Object): Object => {
-    const target = {};
+    let target;
 
-    for (const property in source) {
-        if (source.hasOwnProperty(property)) {
-            target[property] = source[property];
+    if (source.constructor === Array) {
+        target = source.map((element) => {
+            return element;
+        });
+    } else {
+        target = {};
+        for (const property in source) {
+            if (source.hasOwnProperty(property)) {
+                target[property] = source[property];
+            }
         }
     }
 
